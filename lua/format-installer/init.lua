@@ -6,6 +6,11 @@ local settings = {
 
 local configs = 'format-installer/formatters/'
 
+FORMATTERS = {
+    'prettier',
+    'yapf',
+}
+
 function M.setup(opts)
     if opts and opts.installation_path then
         settings.installation_path = opts.installation_path
@@ -17,15 +22,25 @@ function M.install_formatter(formatter)
         vim.fn.mkdir(settings.installation_path)
     end
 
-    require(configs .. formatter).install(settings.installation_path .. formatter)
-    print('Installed ' .. formatter)
+    if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
+        print('Formatter already installed')
+    else
+        if vim.tbl_contains(FORMATTERS, formatter) then
+            require(configs .. formatter).install(settings.installation_path .. formatter)
+            print('Installed ' .. formatter)
+        else
+            print('Formatter does not exist!')
+        end
+    end
 end
 
 function M.uninstall_formatter(formatter)
-    if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
+    if vim.tbl_contains(FORMATTERS, formatter) and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
         vim.fn.delete(settings.installation_path .. formatter, 'rf')
+        print('Uninstalled ' .. formatter)
+    else
+        print('Formatter not installed!')
     end
-    print('Uninstalled ' .. formatter)
 end
 
 function M.get_installed_formatters()
