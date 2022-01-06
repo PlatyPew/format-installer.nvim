@@ -18,7 +18,14 @@ function M.install_formatter(formatter)
     end
 
     require(configs .. formatter).install(settings.installation_path .. formatter)
-    print(formatter .. ' installed!')
+    print('Installed ' .. formatter)
+end
+
+function M.uninstall_formatter(formatter)
+    if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
+        vim.fn.delete(settings.installation_path .. formatter, 'rf')
+    end
+    print('Uninstalled ' .. formatter)
 end
 
 function M.get_installed_formatters()
