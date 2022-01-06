@@ -8,6 +8,7 @@ local configs = 'format-installer/formatters/'
 
 FORMATTERS = {
     'clang_format',
+    'shfmt',
     'prettier',
     'yapf',
 }
