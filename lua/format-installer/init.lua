@@ -6,7 +6,7 @@ local settings = {
 
 local configs = 'format-installer/formatters/'
 
-FORMATTERS = {
+vim.g.FORMATTERS = {
     'clang_format',
     'shfmt',
     'prettier',
@@ -27,7 +27,7 @@ function M.install_formatter(formatter)
     if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
         print('Formatter already installed')
     else
-        if vim.tbl_contains(FORMATTERS, formatter) then
+        if vim.tbl_contains(vim.g.FORMATTERS, formatter) then
             require(configs .. formatter).install(settings.installation_path .. formatter)
             print('Installed ' .. formatter)
         else
@@ -37,7 +37,7 @@ function M.install_formatter(formatter)
 end
 
 function M.uninstall_formatter(formatter)
-    if vim.tbl_contains(FORMATTERS, formatter) and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
+    if vim.tbl_contains(vim.g.FORMATTERS, formatter) and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
         vim.fn.delete(settings.installation_path .. formatter, 'rf')
         print('Uninstalled ' .. formatter)
     else
@@ -60,5 +60,14 @@ function M.get_installed_formatters()
 
     return formatters
 end
+
+vim.cmd([[
+    function! s:complete_args(arg, line, pos)
+        return join(g:FORMATTERS, "\n")
+    endfunction
+
+    command! -nargs=1 -complete=custom,s:complete_args FInstall call v:lua.require("format-installer").install_formatter(<f-args>)
+    command! -nargs=1 -complete=custom,s:complete_args FUninstall call v:lua.require("format-installer").uninstall_formatter(<f-args>)
+]])
 
 return M
