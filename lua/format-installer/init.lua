@@ -28,8 +28,8 @@ function M.install_formatter(formatter)
         print('Formatter already installed')
     else
         if vim.tbl_contains(vim.g.FORMATTERS, formatter) then
-            require(configs .. formatter).install(settings.installation_path .. formatter)
-            print('Installed ' .. formatter)
+            if require(configs .. formatter).install(settings.installation_path .. formatter) then
+                print('Installed ' .. formatter)
         else
             print('Formatter does not exist!')
         end
