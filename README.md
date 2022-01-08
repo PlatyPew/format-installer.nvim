@@ -65,6 +65,14 @@ for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
 
     table.insert(sources, null_ls.builtins.formatting[formatter.name].with(config))
 end
+
+-- Optional: Additional formatters that are not included
+table.insert(
+    sources,
+    null_ls.builtins.formatting.stylua.with({
+        extra_args = { "--column-width=100", "--indent-type=Spaces" },
+    })
+)
 ```
 
 # Installers
@@ -78,7 +86,7 @@ end
 
 # Lua API
 
-- `require'format-installer'.setup()`
-- `require'format-installer'.install_formatter(<formatter>)`
-- `require'format-installer'.uninstall_formatter(<formatter>)`
-- `require'format-installer'.get_installed_formatters()`
+-   `require'format-installer'.setup()`
+-   `require'format-installer'.install_formatter(<formatter>)`
+-   `require'format-installer'.uninstall_formatter(<formatter>)`
+-   `require'format-installer'.get_installed_formatters()`
