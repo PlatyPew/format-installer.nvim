@@ -8,8 +8,9 @@ local configs = "format-installer/formatters/"
 
 vim.g.FORMATTERS = {
     "clang_format",
-    "shfmt",
     "prettier",
+    "shfmt",
+    "stylua",
     "yapf",
 }
 

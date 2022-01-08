@@ -12,7 +12,7 @@ function M.install(path)
         end
 
         local arch
-        if vim.fn.trim(vim.fn.system({ "uname -m" })) == "arm64" then
+        if vim.fn.trim(vim.fn.system({ "uname", "-m" })) == "arm64" then
             arch = "arm64"
         else
             arch = "amd64"
@@ -22,8 +22,8 @@ function M.install(path)
 
         vim.fn.mkdir(path)
 
-        vim.fn.system({ "curl -fsSL -o", path .. "/shfmt", url })
-        vim.fn.system({ "chmod +x", path .. "/shfmt" })
+        vim.fn.system({ "curl", "-fsSL", "-o", path .. "/shfmt", url })
+        vim.fn.system({ "chmod", "+x", path .. "/shfmt" })
         return true
     else
         print("Failed to install shfmt! Missing dependencies: curl")
