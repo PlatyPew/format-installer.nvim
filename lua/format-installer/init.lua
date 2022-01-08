@@ -1,16 +1,16 @@
 local M = {}
 
 local settings = {
-    installation_path = vim.fn.stdpath('data') .. '/formatters/',
+    installation_path = vim.fn.stdpath("data") .. "/formatters/",
 }
 
-local configs = 'format-installer/formatters/'
+local configs = "format-installer/formatters/"
 
 vim.g.FORMATTERS = {
-    'clang_format',
-    'shfmt',
-    'prettier',
-    'yapf',
+    "clang_format",
+    "shfmt",
+    "prettier",
+    "yapf",
 }
 
 function M.setup(opts)
@@ -25,30 +25,34 @@ function M.install_formatter(formatter)
     end
 
     if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
-        print('Formatter already installed')
+        print("Formatter already installed")
     else
         if vim.tbl_contains(vim.g.FORMATTERS, formatter) then
             if require(configs .. formatter).install(settings.installation_path .. formatter) then
-                print('Installed ' .. formatter)
+                print("Installed " .. formatter)
+            end
         else
-            print('Formatter does not exist!')
+            print("Formatter does not exist!")
         end
     end
 end
 
 function M.uninstall_formatter(formatter)
-    if vim.tbl_contains(vim.g.FORMATTERS, formatter) and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
-        vim.fn.delete(settings.installation_path .. formatter, 'rf')
-        print('Uninstalled ' .. formatter)
+    if
+        vim.tbl_contains(vim.g.FORMATTERS, formatter)
+        and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0
+    then
+        vim.fn.delete(settings.installation_path .. formatter, "rf")
+        print("Uninstalled " .. formatter)
     else
-        print('Formatter not installed!')
+        print("Formatter not installed!")
     end
 end
 
 function M.get_installed_formatters()
     local formatters = {}
 
-    local installed = vim.fn.globpath(settings.installation_path, '*', 0, 1)
+    local installed = vim.fn.globpath(settings.installation_path, "*", 0, 1)
     for _, v in ipairs(installed) do
         local formatter = v:match("^.+/(.+)$")
         local cmd = require(configs .. formatter).get_path(settings.installation_path .. formatter)
