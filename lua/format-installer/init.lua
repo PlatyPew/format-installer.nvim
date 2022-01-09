@@ -14,6 +14,7 @@ FORMATTERS = {
     "codespell",
     "djhtml",
     "isort",
+    "mypy",
     "prettier",
     "reorder_python_imports",
     "shfmt",
