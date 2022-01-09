@@ -11,6 +11,7 @@ vim.g.FORMATTERS = {
     "black",
     "clang_format",
     "cmake_format",
+    "codespell",
     "prettier",
     "shfmt",
     "stylua",
