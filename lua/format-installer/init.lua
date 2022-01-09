@@ -13,6 +13,7 @@ FORMATTERS = {
     "cmake_format",
     "codespell",
     "djhtml",
+    "isort",
     "prettier",
     "shfmt",
     "stylua",
