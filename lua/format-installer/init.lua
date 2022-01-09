@@ -15,6 +15,7 @@ FORMATTERS = {
     "djhtml",
     "isort",
     "prettier",
+    "reorder_python_imports",
     "shfmt",
     "stylua",
     "yapf",
