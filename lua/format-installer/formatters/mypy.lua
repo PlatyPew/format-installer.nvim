@@ -1,12 +1,13 @@
 local M = {}
 
-function M.install(path)
-    if vim.fn.executable("virtualenv") == 1 then
-        vim.fn.system({ "virtualenv", path })
+function M.install(path, formatter)
+    local dependency = "virtualenv"
+    if vim.fn.executable(dependency) == 1 then
+        vim.fn.system({ dependency, path })
         vim.fn.system({ path .. "/bin/pip3", "install", "-U", "mypy" })
         return true
     else
-        print("Failed to install mypy! Missing dependencies: virtualenv")
+        print("Failed to install " .. formatter .. "! Missing dependencies: " .. dependency)
         return false
     end
 end

@@ -1,11 +1,12 @@
 local M = {}
 
-function M.install(path)
-    if vim.fn.executable("npm") == 1 then
-        vim.fn.system({ "npm", "install", "--prefix", path, "prettier" })
+function M.install(path, formatter)
+    local dependency = "npm"
+    if vim.fn.executable(dependency) == 1 then
+        vim.fn.system({ dependency, "install", "--prefix", path, "prettier" })
         return true
     else
-        print("Failed to install prettier! Missing dependencies: npm")
+        print("Failed to install " .. formatter .. "! Missing dependencies: " .. dependency)
         return false
     end
 end

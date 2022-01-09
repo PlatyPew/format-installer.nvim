@@ -1,7 +1,8 @@
 local M = {}
 
-function M.install(path)
-    if vim.fn.executable("curl") == 1 then
+function M.install(path, formatter)
+    local dependency = "curl"
+    if vim.fn.executable(dependency) == 1 then
         local url = "https://github.com/mvdan/sh/releases/download/v3.4.2/shfmt_v3.4.2_"
 
         local os
@@ -22,11 +23,11 @@ function M.install(path)
 
         vim.fn.mkdir(path)
 
-        vim.fn.system({ "curl", "-fsSL", "-o", path .. "/shfmt", url })
+        vim.fn.system({ dependency, "-fsSL", "-o", path .. "/shfmt", url })
         vim.fn.system({ "chmod", "+x", path .. "/shfmt" })
         return true
     else
-        print("Failed to install shfmt! Missing dependencies: curl")
+        print("Failed to install " .. formatter .. "! Missing dependencies: " .. dependency)
         return false
     end
 end

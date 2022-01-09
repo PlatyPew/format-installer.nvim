@@ -1,6 +1,6 @@
 local M = {}
 
-function M.install(path)
+function M.install(path, formatter)
     if vim.fn.executable("curl") == 1 and vim.fn.executable("unzip") == 1 then
         local os
         if vim.fn.has("mac") == 1 then
@@ -21,7 +21,7 @@ function M.install(path)
         vim.fn.system({ "rm", path .. "/stylua.zip" })
         return true
     else
-        print("Failed to install stylua! Missing dependencies: curl, unzip")
+        print("Failed to install " .. formatter .. "! Missing dependencies: curl, unzip")
         return false
     end
 end
