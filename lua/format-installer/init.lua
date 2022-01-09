@@ -6,7 +6,7 @@ local settings = {
 
 local configs = "format-installer/formatters/"
 
-vim.g.FORMATTERS = {
+FORMATTERS = {
     "autopep8",
     "black",
     "clang_format",
@@ -33,7 +33,7 @@ function M.install_formatter(formatter)
     if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
         print("Formatter already installed")
     else
-        if vim.tbl_contains(vim.g.FORMATTERS, formatter) then
+        if vim.tbl_contains(FORMATTERS, formatter) then
             if require(configs .. formatter).install(settings.installation_path .. formatter) then
                 print("Installed " .. formatter)
             end
@@ -45,7 +45,7 @@ end
 
 function M.uninstall_formatter(formatter)
     if
-        vim.tbl_contains(vim.g.FORMATTERS, formatter)
+        vim.tbl_contains(FORMATTERS, formatter)
         and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0
     then
         vim.fn.delete(settings.installation_path .. formatter, "rf")
@@ -71,13 +71,13 @@ function M.get_installed_formatters()
     return formatters
 end
 
-vim.cmd([[
-    function! s:complete_args(arg, line, pos)
-        return join(g:FORMATTERS, "\n")
-    endfunction
+function _G.get_available_formatters()
+    return table.concat(FORMATTERS, "\n")
+end
 
-    command! -nargs=1 -complete=custom,s:complete_args FInstall call v:lua.require("format-installer").install_formatter(<f-args>)
-    command! -nargs=1 -complete=custom,s:complete_args FUninstall call v:lua.require("format-installer").uninstall_formatter(<f-args>)
+vim.cmd([[
+    command! -nargs=1 -complete=custom,v:lua.get_available_formatters FInstall call v:lua.require("format-installer").install_formatter(<f-args>)
+    command! -nargs=1 -complete=custom,v:lua.get_available_formatters FUninstall call v:lua.require("format-installer").uninstall_formatter(<f-args>)
 ]])
 
 return M
