@@ -10,6 +10,7 @@ vim.g.FORMATTERS = {
     "autopep8",
     "black",
     "clang_format",
+    "cmake_format",
     "prettier",
     "shfmt",
     "stylua",
