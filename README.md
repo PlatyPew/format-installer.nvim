@@ -77,12 +77,21 @@ table.insert(
 
 # Installers
 
-| Formatter    | Dependencies    |
-| ------------ | --------------- |
-| clang_format | llvm            |
-| shfmt        | curl            |
-| prettier     | npm             |
-| yapf         | pip, virutalenv |
+| Formatter              | Dependencies |
+| ---------------------- | ------------ |
+| autopep8               | virtualenv   |
+| black                  | virtualenv   |
+| clang_format           | llvm         |
+| cmake_format           | virtualenv   |
+| codespell              | virtualenv   |
+| djhtml                 | virtualenv   |
+| isort                  | virtualenv   |
+| mypy                   | virtualenv   |
+| prettier               | npm          |
+| reorder_python_imports | virtualenv   |
+| shfmt                  | curl         |
+| stylua                 | curl, unzip  |
+| yapf                   | virutalenv   |
 
 # Lua API
 
