@@ -12,6 +12,7 @@ vim.g.FORMATTERS = {
     "clang_format",
     "cmake_format",
     "codespell",
+    "djhtml",
     "prettier",
     "shfmt",
     "stylua",
