@@ -1,7 +1,8 @@
 local M = {}
 
 function M.install(path, formatter)
-    if vim.fn.executable("curl") == 1 and vim.fn.executable("unzip") == 1 then
+    M.dependencies = { "curl", "unzip" }
+    if vim.fn.executable(M.dependencies[1]) == 1 and vim.fn.executable(M.dependencies[2]) == 1 then
         local os
         if vim.fn.has("mac") == 1 then
             os = "macos"
@@ -15,13 +16,20 @@ function M.install(path, formatter)
 
         vim.fn.mkdir(path)
 
-        vim.fn.system({ "curl", "-fsSL", "-o", path .. "/stylua.zip", url })
-        vim.fn.system({ "unzip", path .. "/stylua.zip", "-d", path })
+        vim.fn.system({ M.dependencies[1], "-fsSL", "-o", path .. "/stylua.zip", url })
+        vim.fn.system({ M.dependencies[2], path .. "/stylua.zip", "-d", path })
         vim.fn.system({ "chmod", "+x", path .. "/stylua" })
         vim.fn.system({ "rm", path .. "/stylua.zip" })
         return true
     else
-        print("Failed to install " .. formatter .. "! Missing dependencies: curl, unzip")
+        print(
+            "Failed to install "
+                .. formatter
+                .. "! Missing dependencies: "
+                .. M.dependencies[1]
+                .. ", "
+                .. M.dependencies[2]
+        )
         return false
     end
 end

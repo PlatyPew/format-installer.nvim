@@ -1,13 +1,14 @@
 local M = {}
 
 function M.install(path, formatter)
+    M.dependencies = { "llvm" }
     if vim.fn.executable("clang-format") == 1 then
         local clang_format_path = vim.fn.exepath("clang-format")
         vim.fn.mkdir(path)
         vim.fn.system({ "ln", "-sf", clang_format_path, path .. "/clang-format" })
         return true
     else
-        print("Failed to install " .. formatter .. "! Missing dependencies: llvm")
+        print("Failed to install " .. formatter .. "! Missing dependencies: " .. M.dependencies[1])
         return false
     end
 end
