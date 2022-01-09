@@ -8,6 +8,7 @@ local configs = "format-installer/formatters/"
 
 vim.g.FORMATTERS = {
     "autopep8",
+    "black",
     "clang_format",
     "prettier",
     "shfmt",
