@@ -13,6 +13,7 @@ FORMATTERS = {
     "cmake_format",
     "codespell",
     "djhtml",
+    "fprettify",
     "eslint",
     "eslint_d",
     "fixjson",
