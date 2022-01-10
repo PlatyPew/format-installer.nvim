@@ -1,12 +1,14 @@
 # About
 
+### Caution: Still a work in progress
+
 A lightweight installer plugin written for [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) used to manage formatters
 
-Formatters are installed locally into `stdpath("data")`
+Formatters are installed locally into `vim.fn.stdpath("data") .. "/formatters"` (it's usually located at `~/.local/share/nvim/formatters`)
 
-Created because I couldn't find anyone else who has done it yet
+Created because I couldn't find anyone else who has done it yet. Feel free to send issues, pull requests. All help will be greatly appreciated!
 
-Very very VERY WIP
+Also, there's no Windows support, but I am open to pull requests
 
 # Installation
 
@@ -20,19 +22,22 @@ use({
 })
 ```
 
-Setup (You don't have to run this if you don't want to change the installation path)
+Setup (Unnecessary if you don't want to change the installation path)
 
 ```lua
 -- defaults
-require'format-installer'.setup{
-    installation_path = vim.fn.stdpath('data') .. '/formatters/', -- change path to suit your needs
-}
+require("format-installer").setup({
+    -- change path to suit your needs
+    installation_path = vim.fn.stdpath('data') .. '/formatters/',
+})
 ```
 
 # Usage
 
 `:FInstall <fomatter>` to install formatters
+
 `:FUninstall <fomatter>` to uninstall formatters
+
 `:FList` to list installed formatters
 
 _You will need to restart Neovim for the formatters to take effect._
@@ -51,9 +56,9 @@ for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
     table.insert(sources, null_ls.builtins.formatting[formatter.name].with(config))
 end
 
-null_ls.setup{
+null_ls.setup({
     sources = sources,
-}
+})
 ```
 
 What if I want to customise the args?
@@ -74,6 +79,7 @@ for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
 end
 
 -- Optional: Additional formatters that are not included
+-- This just uses the null-ls defaults
 table.insert(
     sources,
     null_ls.builtins.formatting.stylua.with({
@@ -82,7 +88,7 @@ table.insert(
 )
 ```
 
-# Installers
+# Formatters available
 
 | Formatter              | Dependencies |
 | ---------------------- | ------------ |
