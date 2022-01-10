@@ -23,6 +23,7 @@ FORMATTERS = {
     "nginx_beautifier",
     "prettier",
     "prettier_d_slim",
+    "prettierd",
     "reorder_python_imports",
     "shfmt",
     "stylua",
