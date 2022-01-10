@@ -2,7 +2,7 @@ local M = {}
 
 function M.install(path, formatter)
     M.dependencies = { "virtualenv" }
-    if vim.fn.executable(M.dependencies[1]) == 0 then
+    if vim.fn.executable(M.dependencies[1]) == 1 then
         vim.fn.system({ M.dependencies[1], path })
         vim.fn.system({ path .. "/bin/pip3", "install", "-U", "black" })
         return true
