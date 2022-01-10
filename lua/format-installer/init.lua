@@ -20,6 +20,7 @@ FORMATTERS = {
     "isort",
     "markdownlint",
     "mypy",
+    "nginx_beautifier",
     "prettier",
     "reorder_python_imports",
     "shfmt",
