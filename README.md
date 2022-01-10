@@ -30,6 +30,8 @@ require'format-installer'.setup{
 `:FInstall <fomatter>` to install formatters
 `:FUninstall <fomatter>` to uninstall formatters
 
+_You will need to restart Neovim for the formatters to take effect._
+
 # Configuration with null-ls
 
 This should be used in tandem with null-ls
