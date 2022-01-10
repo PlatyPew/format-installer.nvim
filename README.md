@@ -29,6 +29,7 @@ require'format-installer'.setup{
 
 `:FInstall <fomatter>` to install formatters
 `:FUninstall <fomatter>` to uninstall formatters
+`:FList` to list installed formatters
 
 _You will need to restart Neovim for the formatters to take effect._
 

@@ -89,9 +89,14 @@ function _G.get_available_formatters()
     return table.concat(FORMATTERS, "\n")
 end
 
+function _G.get_installed_formatters()
+    print(table.concat(M.get_installed_formatters(), "\n"))
+end
+
 vim.cmd([[
     command! -nargs=1 -complete=custom,v:lua.get_available_formatters FInstall call v:lua.require("format-installer").install_formatter(<f-args>)
     command! -nargs=1 -complete=custom,v:lua.get_available_formatters FUninstall call v:lua.require("format-installer").uninstall_formatter(<f-args>)
+    command! FList call v:lua.require("format-installer").get_installed_formatters()
 ]])
 
 return M
