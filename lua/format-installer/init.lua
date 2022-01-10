@@ -26,6 +26,7 @@ FORMATTERS = {
     "prettier_standard",
     "prettierd",
     "reorder_python_imports",
+    "rustywind",
     "shfmt",
     "stylua",
     "yapf",
