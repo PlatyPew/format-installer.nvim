@@ -13,6 +13,7 @@ FORMATTERS = {
     "cmake_format",
     "codespell",
     "djhtml",
+    "eslint_d",
     "eslint",
     "isort",
     "mypy",
