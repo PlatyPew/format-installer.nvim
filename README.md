@@ -97,6 +97,9 @@ table.insert(
 | mypy                   | virtualenv   |
 | nginx_beautifier       | npm          |
 | prettier               | npm          |
+| prettier_d_slim        | npm          |
+| prettier_standard      | npm          |
+| prettierd              | npm          |
 | reorder_python_imports | virtualenv   |
 | shfmt                  | curl         |
 | stylua                 | curl, unzip  |
