@@ -13,7 +13,11 @@ Very very VERY WIP
 Via packer
 
 ```lua
-use 'PlatyPew/format-installer.nvim'
+use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = "PlatyPew/format-installer.nvim",
+    after = "nvim-lspconfig", -- To prevent null-ls from failing to read buffer
+})
 ```
 
 Setup (You don't have to run this if you don't want to change the installation path)
