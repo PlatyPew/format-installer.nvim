@@ -10,9 +10,13 @@ function M.install(path, formatter)
             os = "linux"
         end
 
-        local url = "https://github.com/JohnnyMorganz/StyLua/releases/download/v0.11.3/stylua-0.11.3-"
-            .. os
-            .. ".zip"
+        local version = "0.11.3"
+
+        local url = string.format(
+            "https://github.com/JohnnyMorganz/StyLua/releases/download/v0.11.3/stylua-%s-%s.zip",
+            version,
+            os
+        )
 
         vim.fn.mkdir(path)
 
