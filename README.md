@@ -115,6 +115,7 @@ table.insert(
 | shfmt                  | curl         |
 | stylelint              | npm          |
 | stylua                 | curl, unzip  |
+| trim_newlines          | awk          |
 | yapf                   | virtualenv   |
 
 # Lua API

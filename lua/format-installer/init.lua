@@ -31,6 +31,7 @@ FORMATTERS = {
     "shfmt",
     "stylelint",
     "stylua",
+    "trim_newlines",
     "yapf",
 }
 
