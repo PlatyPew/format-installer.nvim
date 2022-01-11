@@ -6,7 +6,13 @@ function M.install(path, formatter)
         vim.fn.system({ M.dependencies[1], "install", "--prefix", path, "prettier" })
         return true
     else
-        print("Failed to install " .. formatter .. "! Missing dependencies: " .. M.dependencies[1])
+        print(
+            string.format(
+                "Failed to install %s! Missing dependencies: %s",
+                formatter,
+                M.dependencies[1]
+            )
+        )
         return false
     end
 end

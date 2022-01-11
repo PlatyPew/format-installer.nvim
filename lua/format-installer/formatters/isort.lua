@@ -7,7 +7,13 @@ function M.install(path, formatter)
         vim.fn.system({ path .. "/bin/pip3", "install", "-U", "isort" })
         return true
     else
-        print("Failed to install " .. formatter .. "! Missing dependencies: " .. M.dependencies[1])
+        print(
+            string.format(
+                "Failed to install %s! Missing dependencies: %s",
+                formatter,
+                M.dependencies[1]
+            )
+        )
         return false
     end
 end

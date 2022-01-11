@@ -27,12 +27,12 @@ function M.install(path, formatter)
         return true
     else
         print(
-            "Failed to install "
-                .. formatter
-                .. "! Missing dependencies: "
-                .. M.dependencies[1]
-                .. ", "
-                .. M.dependencies[2]
+            string.format(
+                "Failed to install %s! Missing dependencies: %s, %s",
+                formatter,
+                M.dependencies[1],
+                M.dependencies[2]
+            )
         )
         return false
     end
