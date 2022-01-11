@@ -1,8 +1,8 @@
 local M = {}
 
 function M.install(path, formatter)
-    M.dependencies = { "llvm" }
-    if vim.fn.executable("clang-format") == 1 then
+    M.dependencies = { "clang-format" }
+    if vim.fn.executable(M.dependencies[1]) == 1 then
         local clang_format_path = vim.fn.exepath("clang-format")
         vim.fn.mkdir(path)
         vim.fn.system({ "ln", "-sf", clang_format_path, path .. "/clang-format" })
