@@ -102,6 +102,7 @@ table.insert(
 | eslint_d               | npm          |
 | fixjson                | npm          |
 | fprettify              | virtualenv   |
+| google-java-format     | curl, java   |
 | isort                  | virtualenv   |
 | markdownlint           | npm          |
 | mypy                   | virtualenv   |
