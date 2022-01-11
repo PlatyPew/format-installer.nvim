@@ -7,6 +7,7 @@ local settings = {
 local configs = "format-installer/formatters/"
 
 FORMATTERS = {
+    "asmfmt",
     "autopep8",
     "black",
     "clang_format",

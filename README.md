@@ -92,6 +92,7 @@ table.insert(
 
 | Formatter              | Dependencies |
 | ---------------------- | ------------ |
+| asmfmt                 | curl, tar    |
 | autopep8               | virtualenv   |
 | black                  | virtualenv   |
 | clang_format           | llvm         |
