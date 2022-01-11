@@ -113,6 +113,7 @@ table.insert(
 | prettierd              | npm          |
 | reorder_python_imports | virtualenv   |
 | shfmt                  | curl         |
+| stylelint              | npm          |
 | stylua                 | curl, unzip  |
 | yapf                   | virtualenv   |
 

@@ -29,6 +29,7 @@ FORMATTERS = {
     "reorder_python_imports",
     "rustywind",
     "shfmt",
+    "stylelint",
     "stylua",
     "yapf",
 }
