@@ -102,7 +102,7 @@ table.insert(
 | eslint_d               | npm          |
 | fixjson                | npm          |
 | fprettify              | virtualenv   |
-| google-java-format     | curl, java   |
+| google_java_format     | curl, java   |
 | isort                  | virtualenv   |
 | markdownlint           | npm          |
 | mypy                   | virtualenv   |
@@ -114,7 +114,7 @@ table.insert(
 | reorder_python_imports | virtualenv   |
 | shfmt                  | curl         |
 | stylua                 | curl, unzip  |
-| yapf                   | virutalenv   |
+| yapf                   | virtualenv   |
 
 # Lua API
 
