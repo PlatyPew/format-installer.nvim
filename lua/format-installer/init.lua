@@ -17,6 +17,7 @@ FORMATTERS = {
     "eslint_d",
     "fixjson",
     "fprettify",
+    "google_java_format",
     "isort",
     "markdownlint",
     "mypy",
