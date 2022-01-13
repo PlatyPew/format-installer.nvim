@@ -121,7 +121,9 @@ table.insert(
 
 # Lua API
 
--   `require'format-installer'.setup()`
--   `require'format-installer'.install_formatter(<formatter>)`
--   `require'format-installer'.uninstall_formatter(<formatter>)`
--   `require'format-installer'.get_installed_formatters()`
+-   `require'format-installer'.setup()` - Setups the installation path
+-   `require'format-installer'.install_formatter(<formatter>)` - Installs formatter
+-   `require'format-installer'.uninstall_formatter(<formatter>)` - Uninstalls formatter
+-   `require'format-installer'.get_installed_formatters()` - Returns a table of installed formatters
+-   `require'format-installer'.exists(<formatter>)` - Returns boolean if formatter exists
+-   `require'format-installer'.is_installed(<formatter>)` - Returns boolean if formatter is installed

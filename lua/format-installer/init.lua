@@ -42,34 +42,32 @@ function M.setup(opts)
     end
 end
 
+function M.is_installed(formatter)
+    return vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0
+end
+
+function M.exists(formatter)
+    return vim.tbl_contains(FORMATTERS, formatter)
+end
+
 function M.install_formatter(formatter)
     if vim.fn.isdirectory(settings.installation_path) == 0 then
         vim.fn.mkdir(settings.installation_path)
     end
 
-    if vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0 then
+    if M.is_installed(formatter) then
         print("Formatter already installed")
+    elseif M.exists(formatter) then
+        print("Installing " .. formatter)
+        require(configs .. formatter).install(settings.installation_path .. formatter, formatter)
+        print("Installed " .. formatter)
     else
-        if vim.tbl_contains(FORMATTERS, formatter) then
-            if
-                require(configs .. formatter).install(
-                    settings.installation_path .. formatter,
-                    formatter
-                )
-            then
-                print("Installed " .. formatter)
-            end
-        else
-            print("Formatter does not exist!")
-        end
+        print("Formatter does not exist!")
     end
 end
 
 function M.uninstall_formatter(formatter)
-    if
-        vim.tbl_contains(FORMATTERS, formatter)
-        and vim.fn.isdirectory(settings.installation_path .. formatter) ~= 0
-    then
+    if M.exists(formatter) and M.is_installed(formatter) then
         vim.fn.delete(settings.installation_path .. formatter, "rf")
         print("Uninstalled " .. formatter)
     else
