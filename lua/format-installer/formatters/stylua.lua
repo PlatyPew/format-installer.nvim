@@ -10,10 +10,11 @@ function M.install(path, formatter)
             os = "linux"
         end
 
-        local version = "0.11.3"
+        local version = "0.12.3"
 
         local url = string.format(
-            "https://github.com/JohnnyMorganz/StyLua/releases/download/v0.11.3/stylua-%s-%s.zip",
+            "https://github.com/JohnnyMorganz/StyLua/releases/download/v%s/stylua-%s-%s.zip",
+            version,
             version,
             os
         )
