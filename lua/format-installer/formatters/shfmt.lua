@@ -20,7 +20,8 @@ function M.install(path, formatter)
         local version = "3.4.3"
 
         local url = string.format(
-            "https://github.com/mvdan/sh/releases/download/v3.4.2/shfmt_v%s_%s_%s",
+            "https://github.com/mvdan/sh/releases/download/v%s/shfmt_v%s_%s_%s",
+            version,
             version,
             os,
             arch
