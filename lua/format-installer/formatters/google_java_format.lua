@@ -3,7 +3,7 @@ local M = {}
 function M.install(path, formatter)
     M.dependencies = { "curl", "java" }
     if vim.fn.executable(M.dependencies[1]) == 1 and vim.fn.executable(M.dependencies[2]) == 1 then
-        local version = "1.13.0"
+        local version = "1.14.0"
 
         local url = string.format(
             "https://github.com/google/google-java-format/releases/download/v%s/google-java-format-%s-all-deps.jar",
