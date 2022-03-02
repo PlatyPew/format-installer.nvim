@@ -28,6 +28,7 @@ FORMATTERS = {
     "prettier_standard",
     "prettierd",
     "reorder_python_imports",
+    "rustfmt",
     "rustywind",
     "shfmt",
     "stylelint",
