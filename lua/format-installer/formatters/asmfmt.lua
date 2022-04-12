@@ -17,7 +17,7 @@ function M.install(path, formatter)
             arch = "x86_64"
         end
 
-        local version = "1.3.1"
+        local version = "1.3.2"
 
         local url = string.format(
             "https://github.com/klauspost/asmfmt/releases/download/v%s/asmfmt-%s_%s_%s.tar.gz",
