@@ -1,6 +1,6 @@
 # About
 
-### Caution: Still a work in progress
+### Caution: Development may terminate at any moment without prior warning, feel free to fork :)
 
 A lightweight installer plugin written for [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim) used to manage formatters
 
@@ -111,9 +111,9 @@ table.insert(
 
 # Formatters available
 
-| Formatter              | Dependencies |
-| ---------------------- | ------------ |
-| asmfmt                 | curl, tar    |
+| Formatter              | Dependencies | Version |
+| ---------------------- | ------------ | ------- |
+| asmfmt                 | curl, tar    | 1.3.2   |
 | autopep8               | virtualenv   |
 | black                  | virtualenv   |
 | clang_format           | llvm         |
@@ -124,7 +124,7 @@ table.insert(
 | eslint_d               | npm          |
 | fixjson                | npm          |
 | fprettify              | virtualenv   |
-| google_java_format     | curl, java   |
+| google_java_format     | curl, java   | 1.15.0  |
 | isort                  | virtualenv   |
 | markdownlint           | npm          |
 | mypy                   | virtualenv   |
@@ -134,10 +134,10 @@ table.insert(
 | prettier_standard      | npm          |
 | prettierd              | npm          |
 | reorder_python_imports | virtualenv   |
-| rustfmt                | curl, tar    |
-| shfmt                  | curl         |
+| rustfmt                | curl, tar    | 1.4.38  |
+| shfmt                  | curl         | 3.4.3   |
 | stylelint              | npm          |
-| stylua                 | curl, unzip  |
+| stylua                 | curl, unzip  | 1.13.1  |
 | trim_newlines          | awk          |
 | yapf                   | virtualenv   |
 
