@@ -17,7 +17,7 @@ function M.install(path, formatter)
             arch = "amd64"
         end
 
-        local version = "3.5.0"
+        local version = "3.5.1"
 
         local url = string.format(
             "https://github.com/mvdan/sh/releases/download/v%s/shfmt_v%s_%s_%s",
