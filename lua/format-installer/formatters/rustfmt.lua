@@ -10,7 +10,7 @@ function M.install(path, formatter)
             os = "linux"
         end
 
-        local version = "1.4.38"
+        local version = "1.5."
 
         local url = string.format(
             "https://github.com/rust-lang/rustfmt/releases/download/v%s/rustfmt_%s-x86_64_v%s.tar.gz",

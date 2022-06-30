@@ -134,7 +134,7 @@ table.insert(
 | prettier_standard      | npm          |
 | prettierd              | npm          |
 | reorder_python_imports | virtualenv   |
-| rustfmt                | curl, tar    | 1.4.38  |
+| rustfmt                | curl, tar    | 1.5.1   |
 | shfmt                  | curl         | 3.5.1   |
 | stylelint              | npm          |
 | stylua                 | curl, unzip  | 1.13.1  |
