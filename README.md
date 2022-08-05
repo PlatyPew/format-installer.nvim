@@ -137,7 +137,7 @@ table.insert(
 | rustfmt                | curl, tar    | 1.5.1   |
 | shfmt                  | curl         | 3.5.1   |
 | stylelint              | npm          |
-| stylua                 | curl, unzip  | 1.13.1  |
+| stylua                 | curl, unzip  | 0.14.2  |
 | trim_newlines          | awk          |
 | yapf                   | virtualenv   |
 
